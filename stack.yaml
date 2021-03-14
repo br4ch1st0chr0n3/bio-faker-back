@@ -1,0 +1,10 @@
+resolver: nightly-2020-11-06
+
+packages:
+  - .
+
+extra-deps:
+  - git: https://github.com/luvemil/fakedata.git
+    commit: d1b4a77e57125bcf434904fb44761802e06ad774
+
+system-ghc: true
