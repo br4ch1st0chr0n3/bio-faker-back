@@ -1,6 +1,6 @@
 # fakedata-example
 
-1. Get the released binary from <insert_url>
+1. Get the [released binary](https://github.com/luvemil/fakedata-example/releases/download/v0.1.0.0/fakedata-example-exe-0.1.0.0-Linux-ghc-8.10.2)
 
 2. Download the fakedata repo
 
@@ -14,6 +14,6 @@ git submodule update
 3. Run the binary
 
 ```
-./fakedata-example-exe default -- uses the path from the fakedata library
-./fakedata-example-exe custom /path/to/local/fakedata -- uses the local library
+./fakedata-example-exe-0.1.0.0-Linux-ghc-8.10.2 default -- uses the path from the fakedata library
+./fakedata-example-exe-0.1.0.0-Linux-ghc-8.10.2 custom /path/to/local/fakedata -- uses the local library
 ```
