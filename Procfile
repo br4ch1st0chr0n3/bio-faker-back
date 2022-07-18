@@ -1,0 +1,1 @@
+web: fakedata-example-exe default

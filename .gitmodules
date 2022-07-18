@@ -1,0 +1,3 @@
+[submodule "fakedata"]
+	path = fakedata
+	url = https://github.com/fakedata-haskell/fakedata.git
