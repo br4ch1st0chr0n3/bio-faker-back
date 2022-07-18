@@ -1,1 +1,1 @@
-web: fakedata-example-exe default
+web: fakedata-example-exe

@@ -15,23 +15,20 @@ module Server
   )
 where
 
-import Control.Monad.IO.Class
 import Control.Monad.Trans.Except
 import Data.Aeson
 import Data.Aeson.TH
 import Data.Text
 import Faker
-import qualified Faker.Yoda as Yoda
 import Network.Wai
 import Network.Wai.Handler.Warp
-import Network.Wai.Middleware.Cors (CorsResourcePolicy (corsMethods, corsOrigins, corsRequestHeaders), cors, simpleCors, simpleCorsResourcePolicy)
+import Network.Wai.Middleware.Cors (CorsResourcePolicy (corsMethods, corsOrigins, corsRequestHeaders), cors, simpleCorsResourcePolicy)
 import Servant
 
 import System.Environment (getEnv)
 import System.IO.Error
 import Faker.Yoda
 import Faker.ChuckNorris
-import Data.Function ((&))
 
 data MyResponse = MyResponse
   { text :: Text
@@ -76,10 +73,6 @@ api = Proxy
 
 data Source = Yoda | ChuckNorris
 
--- fakerSettings :: FakerSettings
--- fakerSettings = defaultFakerSettings
--- & setLocale "en" & setNonDeterministic
-
 server :: Server API
 server = han Yoda :<|> han ChuckNorris
   where
@@ -87,8 +80,9 @@ server = han Yoda :<|> han ChuckNorris
 
     handle :: Source -> IO (Either ServerError MyResponse)
     handle s = do
-        f <- generateNonDeterministic $
+        let fsettings = setNonDeterministic . setLocaleDir "fakedata" $ defaultFakerSettings 
+        f <- generateWithSettings fsettings $
                 case s of
                     Yoda -> quotes
                     ChuckNorris -> fact
-        return $ Right $ MyResponse f
+        return $ Right $ MyResponse {text = f}
