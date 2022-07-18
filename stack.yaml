@@ -9,3 +9,12 @@ extra-deps:
     commit: d1b4a77e57125bcf434904fb44761802e06ad774
 
 system-ghc: true
+
+ghc-options:
+  '$everything': -haddock
+# Dependency packages to be pulled from upstream that are not in the resolver.
+# These entries can reference officially published versions as well as
+# forks / in-progress versions pinned to a git hash. For example:
+#
+# extra-deps:
+# - fakedata-1.0.3

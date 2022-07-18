@@ -33,6 +33,15 @@ dependencies:
   - uuid
   - fakedata
   - optparse-generic
+  - aeson
+  - servant-server
+  - wai
+  - warp
+  - fakedata
+  - text
+  - wai-cors
+  - transformers
+
 
 ghc-options:
   - -Wall

@@ -25,7 +25,7 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Server
   other-modules:
       Paths_fakedata_example
   hs-source-dirs:
@@ -56,7 +56,8 @@ library
       TypeOperators
   ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat -Widentities -Wredundant-constraints -fhide-source-paths -Wpartial-fields
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , bytestring
     , containers
     , directory
@@ -65,10 +66,15 @@ library
     , lens
     , mtl
     , optparse-generic
+    , servant-server
     , text
     , time
+    , transformers
     , unordered-containers
     , uuid
+    , wai
+    , wai-cors
+    , warp
   default-language: Haskell2010
 
 executable fakedata-example-exe
@@ -103,7 +109,8 @@ executable fakedata-example-exe
       TypeOperators
   ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat -Widentities -Wredundant-constraints -fhide-source-paths -Wpartial-fields -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , bytestring
     , containers
     , directory
@@ -113,10 +120,15 @@ executable fakedata-example-exe
     , lens
     , mtl
     , optparse-generic
+    , servant-server
     , text
     , time
+    , transformers
     , unordered-containers
     , uuid
+    , wai
+    , wai-cors
+    , warp
   default-language: Haskell2010
 
 test-suite fakedata-example-test
@@ -152,7 +164,8 @@ test-suite fakedata-example-test
       TypeOperators
   ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat -Widentities -Wredundant-constraints -fhide-source-paths -Wpartial-fields -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , bytestring
     , containers
     , directory
@@ -162,8 +175,13 @@ test-suite fakedata-example-test
     , lens
     , mtl
     , optparse-generic
+    , servant-server
     , text
     , time
+    , transformers
     , unordered-containers
     , uuid
+    , wai
+    , wai-cors
+    , warp
   default-language: Haskell2010
