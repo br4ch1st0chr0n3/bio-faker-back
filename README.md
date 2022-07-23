@@ -1,19 +1,30 @@
-# fakedata-example
+# Bio faker backend
 
-1. Get the [released binary](https://github.com/luvemil/fakedata-example/releases/download/v0.1.0.0/fakedata-example-exe-0.1.0.0-Linux-ghc-8.10.2)
 
-2. Download the fakedata repo
-
+## Build and run
+* Install [stack](https://docs.haskellstack.org/en/stable/README/)
+* Run
+```sh
+git clone --recurse-submodules -j8 https://github.com/br4ch1st0chr0n3/bio-faker-back
+cd bio-faker-back
+sh run.sh
 ```
-git clone https://github.com/fakedata-haskell/fakedata.git
-cd fakedata
-git submodule init
-git submodule update
+
+## Host on Heroku
+* Read this [article](https://hackernoon.com/for-all-the-world-to-see-deploying-haskell-with-heroku-7ea46f827ce)
+* Do 
+```
+heroku create app-name  -b https://github.com/mfine/heroku-buildpack-stack
+git remote add app-name https://git.heroku.com/app-name.git
+git push heroku master
+heroku ps:scale web=1
 ```
 
-3. Run the binary
+## Access online
+* `GET`-requests at
+    * [/yoda](https://bio-faker-back.herokuapp.com/yoda)
+    * [/chuck_norris](https://bio-faker-back.herokuapp.com/chuck_norris)
 
-```
-./fakedata-example-exe-0.1.0.0-Linux-ghc-8.10.2 default -- uses the path from the fakedata library
-./fakedata-example-exe-0.1.0.0-Linux-ghc-8.10.2 custom /path/to/local/fakedata -- uses the local library
-```
+## References
+* Clone repo with nested submodules: [here](https://stackoverflow.com/a/4438292)
+* Clone nested submodules retrospectively: [here](https://stackoverflow.com/a/6562038)
